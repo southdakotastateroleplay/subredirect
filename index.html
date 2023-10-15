@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Redirecting...</title>
-  <script type="text/javascript">
-    const subdomain = window.location.subdomain;
-
-    if (subdomain === 'sdsrp') {
-      window.location.replace("https://sdsrp.com");
-    } else if (subdomain === 'sdsrpstaff') {
-      window.location.replace("https://staff.sdsrp.com");
-    } else if (subdomain === 'sdsrprating') {
-      window.location.replace("https://rate.sdsrp.com");
-    }
-  </script>
+    <title>Subdomain Redirect</title>
 </head>
 <body>
-  <p>Redirecting...</p>
+    <script type="text/javascript">
+        const subdomain = window.location.hostname.split('.')[0];
+
+        switch (subdomain) {
+            case 'sdsrp':
+                window.location.href = 'https://sdsrp.com';
+                break;
+            case 'sdsrprating':
+                window.location.href = 'https://rate.sdsrp.com';
+                break;
+            case 'sdsrpstaff':
+                window.location.href = 'https://staff.sdsrp.com';
+                break;
+            case 'sdsrpplay':
+                window.location.href = 'https://www.roblox.com/home';
+                break;
+            default:
+                // Redirect to default website if subdomain is unknown
+                window.location.href = 'https://sdsrp.com';
+                break;
+        }
+    </script>
 </body>
 </html>
